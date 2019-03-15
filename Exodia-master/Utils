@@ -1,0 +1,45 @@
+package pl.plajer.platinumhubcore.utils;
+
+import org.bukkit.ChatColor;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.plugin.java.JavaPlugin;
+
+import pl.plajer.platinumhubcore.Main;
+import pl.plajerlair.core.utils.ConfigUtils;
+
+/**
+ * @author DarkKngihts22
+ * <p>
+ * Created at 29.01.2019
+ */
+public class Utils {
+
+  private static FileConfiguration config = ConfigUtils.getConfig(JavaPlugin.getPlugin(Main.class), "language");
+
+  public static String color(String message, boolean prefix) {
+    String msg =ChatColor.translateAlternateColorCodes('&', config.getString(message, "ERR_MESSAGE_NOT_FOUND"));
+    if(prefix) {
+      msg = ChatColor.translateAlternateColorCodes('&', config.getString("Commands.Prefix")) + msg;
+    }
+    return msg;
+  }
+
+  public static String colorRaw(String message) {
+    return ChatColor.translateAlternateColorCodes('&', message);
+  }
+
+  /**
+   * Checks whether itemstack is named (not null, has meta and display name)
+   *
+   * @param stack item stack to check
+   * @return true if named, false otherwise
+   */
+  public static boolean isNamed(ItemStack stack) {
+    if (stack == null) {
+      return false;
+    }
+    return stack.hasItemMeta() && stack.getItemMeta().hasDisplayName();
+  }
+
+}
