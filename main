@@ -1,0 +1,39 @@
+private exodia.necross.DuoWars
+
+
+
+import org.bukkit.Bukkit
+
+import org.bukkit.Chatcolor
+
+
+
+public class Main extends JavaPlugin {
+
+priavte String prefix = Chatcolor.RED + "DuoWars";
+
+  
+
+  public void onEnable() {
+
+  Bukkit.getConsolesender().sendMesssage(prefix + Chatcolor.GREEN + "ENABLED");
+
+  }
+
+  
+
+  public void onDisable() {
+
+  Bukkit.getConsolesender().sendMessage(prefix + Chatcolor.RED + "DISABLED");
+
+  
+
+  public void onCommand {
+
+  
+
+  SetCommand Eecutr("HELP");
+
+  player.sendMessage(Utils.color("Commands.help").replace("%player%, player.getDisplayName;
+
+  }
